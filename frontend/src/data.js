@@ -10,6 +10,7 @@ const data = {
       rating: 4.5,
       numReviews: 10,
       description: "high quality ",
+      countInStock:0,
     },
     {
       _id: 2,
@@ -21,6 +22,7 @@ const data = {
       rating: 1,
       numReviews: 10,
       description: "high quality ",
+      countInStock:10,
     },
     /* {
       _id: 3,
@@ -32,6 +34,7 @@ const data = {
       rating: 0.5,
       numReviews: 10,
       description: "high quality ",
+      countInStock:0,
     } */,
     {
       _id: 4,
@@ -43,6 +46,7 @@ const data = {
       rating: 0.1,
       numReviews: 10,
       description: "high quality ",
+      countInStock:5,
     },
     {
       _id: 5,
@@ -54,6 +58,7 @@ const data = {
       rating: 0.1,
       numReviews: 10,
       description: "high quality ",
+      countInStock:3,
     },
     {
       _id: 6,
@@ -65,6 +70,7 @@ const data = {
       rating: 0.1,
       numReviews: 10,
       description: "high quality ",
+      countInStock:0,
     },
     {
       _id: 7,
@@ -76,6 +82,7 @@ const data = {
       rating: 0.1,
       numReviews: 10,
       description: "high quality ",
+      countInStock:0,
     },
     {
       _id: 8,
@@ -87,6 +94,7 @@ const data = {
       rating: 0.1,
       numReviews: 10,
       description: "high quality ",
+      countInStock:0,
     },
   ],
 };

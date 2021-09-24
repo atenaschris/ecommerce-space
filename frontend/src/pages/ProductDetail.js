@@ -11,13 +11,11 @@ const ProductDetail = () => {
   console.log(params);
   const ProductId = params.productId;
 
-  const product = data.products.filter((product) => product._id === +ProductId);
+  const product = data.products.find((product) => product._id === +ProductId);
 
   console.log(product);
 
-  if (product.length === 0) 
-    return <ProductNotFound/>
-  
+  if (product.length === 0) return <ProductNotFound />;
 
   return (
     <section className="grid-detail">
@@ -35,9 +33,13 @@ const ProductDetail = () => {
           <p>Price</p>
           <p>$ 100</p>
         </div>
-        <div className="row">
-          <p>Status</p>
-          <p>in Stock</p>
+        <div className="row column">
+          <p>Status:</p>
+          {product.countInStock > 0 ? (
+            <p className="available">in Stock</p>
+          ) : (
+            <p className="unavailable">Unavailable</p>
+          )}
         </div>
         <div>
           <button>Add to Cart</button>

@@ -136,6 +136,9 @@ nav div:first-child a:hover::before {
 .row.center {
   justify-content: center;
 }
+.row.column{
+  flex-direction: column;
+}
 
 .brand {
   font-size: 3rem;
@@ -319,4 +322,14 @@ figure {
 }
 .product-detail-add-to-chart button:active {
   box-shadow: inset 1px 1px 2px #babecc, inset -1px -1px 2px var(--third-color);
+}
+
+.available{
+  color: green;
+  margin: 0 0 8px 0;
+}
+
+.unavailable{
+  color: red;
+  margin: 0 0 8px 0;
 }

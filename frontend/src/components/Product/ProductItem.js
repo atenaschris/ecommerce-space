@@ -13,7 +13,6 @@ const ProductItem = ({
   numReviews,
   description,
 }) => {
-    console.log(id);
   const detailPath = `/product/${id}`;
   return (
     <Link to={detailPath}>
