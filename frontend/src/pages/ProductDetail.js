@@ -4,15 +4,20 @@ import ProductRating from "../components/Product/ProductRating";
 import { useParams } from "react-router";
 
 import data from "../data";
+import ProductNotFound from "../components/Layout/ProductNotFound";
 
 const ProductDetail = () => {
   const params = useParams();
   console.log(params);
   const ProductId = params.productId;
 
-  const product = data.products.filter((product)=>product._id === ProductId);
+  const product = data.products.filter((product) => product._id === +ProductId);
 
   console.log(product);
+
+  if (product.length === 0) 
+    return <ProductNotFound/>
+  
 
   return (
     <section className="grid-detail">

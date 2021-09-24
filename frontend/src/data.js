@@ -22,7 +22,7 @@ const data = {
       numReviews: 10,
       description: "high quality ",
     },
-    {
+    /* {
       _id: 3,
       name: "Nike",
       category: "shirts",
@@ -32,7 +32,7 @@ const data = {
       rating: 0.5,
       numReviews: 10,
       description: "high quality ",
-    },
+    } */,
     {
       _id: 4,
       name: "Nike",
@@ -45,7 +45,7 @@ const data = {
       description: "high quality ",
     },
     {
-      _id: 4,
+      _id: 5,
       name: "Nike",
       category: "shirts",
       image: "https://picsum.photos/200/300?d=2",
@@ -56,7 +56,7 @@ const data = {
       description: "high quality ",
     },
     {
-      _id: 4,
+      _id: 6,
       name: "Nike",
       category: "shirts",
       image: "https://picsum.photos/200/300?d=2",
@@ -67,7 +67,7 @@ const data = {
       description: "high quality ",
     },
     {
-      _id: 4,
+      _id: 7,
       name: "Nike",
       category: "shirts",
       image: "https://picsum.photos/200/300?d=2",
@@ -78,7 +78,7 @@ const data = {
       description: "high quality ",
     },
     {
-      _id: 4,
+      _id: 8,
       name: "Nike",
       category: "shirts",
       image: "https://picsum.photos/200/300?d=2",

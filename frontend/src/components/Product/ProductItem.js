@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import ProductRating from "./ProductRating";
 
 const ProductItem = ({
-  _id,
+  id,
   name,
   category,
   image,
@@ -13,10 +13,11 @@ const ProductItem = ({
   numReviews,
   description,
 }) => {
-  const detailPath = `/product/${_id}`;
+    console.log(id);
+  const detailPath = `/product/${id}`;
   return (
     <Link to={detailPath}>
-      <div key={_id} className="product-wrapper">
+      <div key={id} className="product-wrapper">
         <figure>
           <img src={image} alt={name} />
           <div className="details-wrapper">
