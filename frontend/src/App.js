@@ -8,12 +8,8 @@ function App() {
   return (
     <Layout>
       <Switch>
-        <Route path="/" exact>
-          <Home />
-        </Route>
-        <Route path="/product/:productId">
-          <ProductDetail />
-        </Route>
+        <Route path="/"  component={Home} exact></Route>
+        <Route path="/product/:productId" component={ProductDetail}></Route>
         <Route path="*">
           <Redirect to="/"/>
         </Route>
