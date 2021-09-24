@@ -78,6 +78,10 @@ a:hover {
   color: rgba(255, 255, 255, 0.966);
 }
 
+nav a:first-child{
+  margin-right: 10px;
+}
+
 nav a::before {
   content: "";
   position: absolute;
@@ -202,10 +206,10 @@ figure {
   display: grid;
   grid-template-areas:
     "image details addtochart"
-    "image . .";
-  grid-template-columns:3fr 2.5fr 1fr;
+   ;
+  grid-template-columns:3fr 2fr 1fr;
+  grid-template-rows:500px  ;
   gap: 25px;
-  height: 100%;
   color: var(--third-color);
 }
 
@@ -215,17 +219,16 @@ figure {
       "image image image "
       "details details addtochart ";
   }
+  
 }
 @media (max-width: 447px) {
   .grid-detail {
     grid-template-areas:
       "image image image "
       "details details details "
-      "addtochart addtochart .";
+      "addtochart addtochart addtochart";
   }
-  .product-detail-image-section {
-   
-  }
+ 
 }
 
 .product-detail-image-section {
@@ -236,17 +239,38 @@ figure {
   width: 100%;
   height: 100%;
   border-radius: 20px;
+  object-fit: cover;
 }
 
 .product-detail-details-section {
   grid-area: details;
+  place-self: center center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
+
+@media (max-width:1005px){
+  .product-detail-details-section {
+    grid-area: details;
+    place-self: center start;
+  }
+}
+@media (max-width:447px){
+  .product-detail-details-section {
+    grid-area: details;
+    place-self: center center;
+  }
+}
+
 
 .product-detail-add-to-chart {
   grid-area: addtochart;
   border: 1px solid var(--secondary-color);
   padding: 10px;
   border-radius: 20px;
+  place-self: center center;
+ 
 }
 
 .product-detail-details-section ul {
