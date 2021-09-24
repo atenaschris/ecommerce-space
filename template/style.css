@@ -45,10 +45,10 @@ footer {
   padding: 20px;
 }
 
-ul{
-    list-style: none;
-    margin:0;
-    padding:0;
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 /* Common */
 
@@ -68,7 +68,7 @@ a:hover {
   color: rgba(255, 255, 255, 0.966);
 }
 
- header a::before {
+header a::before {
   content: "";
   position: absolute;
   width: auto;
@@ -82,18 +82,18 @@ a:hover {
   transform: scale(0);
   transform-origin: left center;
 }
- header a:hover::before {
+header a:hover::before {
   opacity: 1;
   transform: scale(1);
-  top:20px;
+  top: 20px;
 }
-header div:first-child a{
-    padding-bottom: 4px;
+header div:first-child a {
+  padding-bottom: 4px;
 }
 
 header div:first-child a:hover::before {
-    top:45px;
-  }
+  top: 45px;
+}
 
 .row {
   display: flex;
@@ -102,13 +102,85 @@ header div:first-child a:hover::before {
   align-items: center;
 }
 
-.row.center{
-    justify-content: center;
+.row.center {
+  justify-content: center;
+}
+
+.brand {
+  font-size: 3rem;
+  font-weight: 900;
+  letter-spacing: 1.4px;
+}
+
+.grid-products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 25px;
+}
+
+.grid-products .product-wrapper {
+  background-color: var(--main-color);
+  color: var(--third-color);
+
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid transparent;
+  transition:all 0.4s ease-in;
+}
+
+.grid-products .product-wrapper:hover {
+  background-color: var(--main-color);
+  color: var(--third-color);
+
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--secondary-color);
+}
+figure {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+}
+.grid-products .product-wrapper figure img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  transform: scale(1);
+  transition: all 0.5s ease;
+  position: relative;
+}
+.grid-products .product-wrapper figure img:hover {
+  transform: scale(1.1);
+}
+.grid-products .details-wrapper ul {
+  width: 60%;
+}
+
+.grid-products .product-wrapper .details-wrapper {
+  padding: 10px;
+  display: none;
+  transition: all 0.5s ease-in;
+  position: absolute;
+  top:0px;
+  pointer-events: none;
+}
+
+.grid-products .product-wrapper .details-wrapper {
+  padding: 10px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-direction: column;
+  transition: all 0.5s ease-in;
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.details-wrapper ul li i{
+    color:rgb(219, 219, 16)
 }
 
 
-.brand{
-    font-size: 3rem;
-    font-weight: 900;
-    letter-spacing: 1.4px;
-}
