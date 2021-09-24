@@ -1,29 +1,24 @@
-import "./App.css";
 import ProductList from "./components/Product/ProductList";
-
-
+import Layout from "./components/Layout/Layout";
+import { Switch, Route, Redirect } from "react-router";
+import Home from "./pages/Home";
+import ProductDetail from "./pages/ProductDetail";
 
 function App() {
   return (
-    <div className="App">
-      <div className="grid-container">
-        <header className="row">
-          <div>
-            <a className="brand" href="/">
-              Space
-            </a>
-          </div>
-          <div>
-            <a href="/cart">Cart</a>
-            <a href="/signin">Sign In</a>
-          </div>
-        </header>
-        <main>
-          <ProductList/>
-        </main>
-        <footer className="row center">All right reserved</footer>
-      </div>
-    </div>
+    <Layout>
+      <Switch>
+        <Route path="/" exact>
+          <Home />
+        </Route>
+        <Route path="/product/:productId">
+          <ProductDetail />
+        </Route>
+        <Route path="*">
+          <Redirect to="/"/>
+        </Route>
+      </Switch>
+    </Layout>
   );
 }
 
