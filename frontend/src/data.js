@@ -24,7 +24,7 @@ const data = {
       description: "high quality ",
       countInStock:10,
     },
-    /* {
+    {
       _id: 3,
       name: "Nike",
       category: "shirts",
@@ -35,7 +35,7 @@ const data = {
       numReviews: 10,
       description: "high quality ",
       countInStock:0,
-    } */,
+    },
     {
       _id: 4,
       name: "Nike",

@@ -9,13 +9,14 @@ import ProductNotFound from "../components/Layout/ProductNotFound";
 const ProductDetail = () => {
   const params = useParams();
   console.log(params);
+  
   const ProductId = params.productId;
 
   const product = data.products.find((product) => product._id === +ProductId);
 
   console.log(product);
 
-  if (product.length === 0) return <ProductNotFound />;
+  if (!product) return <ProductNotFound />;
 
   return (
     <section className="grid-detail">
