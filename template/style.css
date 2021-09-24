@@ -183,4 +183,110 @@ figure {
     color:rgb(219, 219, 16)
 }
 
+/* style card custom chi siamo */
+
+/* * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(#efefefe1, #ddddddbb);
+}
+h2 {
+  top: 40px;
+  position: absolute;
+  font-size: 1.7em;
+  color: #777;
+  font-weight: normal;
+  opacity:1;
+  transition: all 0.4s ease;
+}
+.testmonial {
+  width: 390px;
+  position: relative;
+  filter: drop-shadow(0px 0px 15px #8888883f);
+  
+ 
+}
+.testmonial .text {
+  font-weight: 500;
+  background-color: rgb(0,0,0,0.8);
+  border-radius: 10px;
+  padding: 45px 10px 25px 30px;
+  height: 200px;
+  opacity:1;
+  
+}
+.testmonial .text p {
+  color: #555;
+  line-height: 1.6;
+  text-indent: 20px;
+  margin-bottom: 15px;
+  font-style: italic;
+}
+.testmonial .text h3 {
+  color: #2196f3;
+  text-align: center;
+  font-weight: 500;
+}
+
+.testmonial .image {
+  position: absolute;
+  background-color: #fff;
+  border-radius: 50%;
+  width: 225px;
+  height: 225px;
+  top: 0;
+  left: 50%;
+  opacity:1;
+  transform: translateX(-50%);
+  cursor: pointer;
+  transition-timing-function: ease-in-out;
+  
+}
+.testmonial .image img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  cursor: pointer;
+  transition-timing-function: ease-in-out;
+}
+ */
+/* Js card custom chi siamo */
+ /* let image = document.querySelector(".image");
+let text = document.querySelector(".text");
+let h2 = document.getElementById("h2");
+
+image.onclick = () => {
+  image.style.transition = "0.4s";
+  text.style.transition = "0.4s";
+
+  if (image.style.top != "-60px") {
+    image.style.top = "-60px";
+    image.style.width = "100px";
+    image.style.height = "100px";
+    image.style.padding = "5px";
+    text.style.opacity = "1";
+    text.style.transitionDelay = "0.4s";
+    h2.style.opacity="0";
+  } else {
+    image.style.top = "0px";
+    image.style.width = "225px";
+    image.style.height = "225px";
+    image.style.padding = "0px";
+    image.style.transitionDelay = "0.2s";
+    text.style.opacity = "0";
+    h2.style.opacity="1";
+  }
+};
+   */
+
 
