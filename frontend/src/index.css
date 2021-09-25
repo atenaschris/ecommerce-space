@@ -36,6 +36,25 @@ body {
   text-transform: uppercase;
 }
 
+.alert{
+  padding:1rem;
+  border:0.1rem solid transparent;
+  border-radius:0.5rem;
+}
+.alert-info{
+  color:var(--main-color);
+  background-color: var(--secondary-color);
+}
+
+.alert-danger{
+  color:#a02020;
+  background-color: var(--secondary-color) ;
+}
+
+.center{
+  text-align: center;
+}
+
 /* Start css welcome page */
 
 .grid-container {

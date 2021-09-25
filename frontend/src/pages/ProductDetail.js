@@ -1,9 +1,9 @@
-import React from "react";
+/* import React from "react";
 import ProductRating from "../components/Product/ProductRating";
 
 import { useParams } from "react-router";
 
-import data from "../data";
+import data from "../../../backend/data";
 import ProductNotFound from "../components/Layout/ProductNotFound";
 
 const ProductDetail = () => {
@@ -51,3 +51,4 @@ const ProductDetail = () => {
 };
 
 export default ProductDetail;
+ */
