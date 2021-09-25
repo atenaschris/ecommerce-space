@@ -65,7 +65,7 @@ const WhoWeAre = () => {
               molestiae assumenda quis natus saepe sapiente voluptates veritatis
               aliquam porro nobis ipsa esse distinctio.
             </p>
-            <h3>John Smith</h3>
+            <h3>Gianni Pinto</h3>
           </div>
 
           <div class="image" ref={imageBoxone}>
@@ -87,7 +87,7 @@ const WhoWeAre = () => {
               molestiae assumenda quis natus saepe sapiente voluptates veritatis
               aliquam porro nobis ipsa esse distinctio.
             </p>
-            <h3>John Smith</h3>
+            <h3>Damiana Giannini</h3>
           </div>
 
           <div class="image" ref={imageBoxtwo}>

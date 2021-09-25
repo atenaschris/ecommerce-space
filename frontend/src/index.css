@@ -341,7 +341,7 @@ figure {
   display: flex;
   height: 100vh;
   justify-content: space-around;
-  align-items: center; 
+  align-items: center;  
   flex-flow: row wrap;
 }
 
