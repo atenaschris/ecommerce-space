@@ -95,8 +95,8 @@ a:hover {
   color: rgba(255, 255, 255, 0.966);
 }
 
-nav a:first-child{
-  margin-right: 10px;
+nav .nav-links a{
+  margin: 0px 10px;
 }
 
 nav a::before {
@@ -332,4 +332,94 @@ figure {
 .unavailable{
   color: red;
   margin: 0 0 8px 0;
+}
+
+/* End product detail css */
+/* start who-we-are css */
+
+.who-we-are-flex{
+  display: flex;
+  height: 100vh;
+  justify-content: space-around;
+  align-items: center; 
+  flex-flow: row wrap;
+}
+
+@media (max-width:821px){
+  .who-we-are-flex{
+    margin-top: 50px;
+  }
+}
+
+.who-we-are-wrapper{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.who-we-are-wrapper h2{
+  top: -115px;
+  position: absolute;
+  font-size: 1.7em;
+  color: var(--secondary-color);
+  font-weight: normal;
+  opacity:1;
+  transition: all 0.4s ease;
+  cursor: pointer;
+}
+.testimonial{
+  width: 390px;
+  position: relative;
+  filter: drop-shadow(0px 0px 15px #8888883f);
+}
+
+@media (max-width:439px){
+  .testimonial{
+    width: 280px;
+    
+  }
+}
+
+.testimonial .text {
+  font-weight: 500;
+  background-color: rgb(0,0,0,0.8);
+  border-radius: 10px;
+  padding: 45px 10px 25px 30px;
+  height: 200px;
+  opacity:0;
+}
+.testimonial .text p {
+  color: #555;
+  line-height: 1.6;
+  text-indent: 20px;
+  margin-bottom: 15px;
+  font-style: italic;
+}
+.testimonial .text h3 {
+  color: var(--secondary-color);
+  text-align: center;
+  font-weight: 500;
+}
+.testimonial .image {
+  position: absolute;
+  background-color: var(--secondary-color);
+  border-radius: 50%;
+  width: 225px;
+  height: 225px;
+  top: 0;
+  left: 50%;
+  opacity:1;
+  transform: translateX(-50%);
+  cursor: pointer;
+  transition-timing-function: ease-in-out;
+}
+
+.testimonial .image img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  cursor: pointer;
+  transition-timing-function: ease-in-out;
 }

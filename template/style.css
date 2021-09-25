@@ -213,8 +213,6 @@ h2 {
   width: 390px;
   position: relative;
   filter: drop-shadow(0px 0px 15px #8888883f);
-  
- 
 }
 .testmonial .text {
   font-weight: 500;
@@ -232,6 +230,7 @@ h2 {
   margin-bottom: 15px;
   font-style: italic;
 }
+
 .testmonial .text h3 {
   color: #2196f3;
   text-align: center;
@@ -274,8 +273,8 @@ image.onclick = () => {
     image.style.width = "100px";
     image.style.height = "100px";
     image.style.padding = "5px";
-    text.style.opacity = "1";
     text.style.transitionDelay = "0.4s";
+    text.style.opacity = "1";
     h2.style.opacity="0";
   } else {
     image.style.top = "0px";
