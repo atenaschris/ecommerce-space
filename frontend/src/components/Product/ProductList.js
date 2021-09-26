@@ -10,6 +10,8 @@ const ProductList = () => {
   const [error, setError] = useState(false);
   const getAllProducts = async () => {
     setIsLoading(true);
+    setError(null);
+
     try {
       const { data } = await axios.get("/api/products");
 
@@ -28,9 +30,9 @@ const ProductList = () => {
     <section className="grid-products">
       {loading ? (
         <LoadingBox/>
-      ) : error ? (
+      ) : error  ? (
         <MessageBox variant="danger">{error}</MessageBox>
-      ) : (
+      ) :  (
         products.map((product) => (
           <ProductItem
             key={product._id}
