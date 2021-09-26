@@ -1,38 +1,25 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import ProductItem from "./ProductItem";
-import axios from "axios";
 import LoadingBox from "../UI/LoadingBox";
 import MessageBox from "../UI/MessageBox";
+import { fetchProducts } from "../../actions/productActions";
+import { useDispatch, useSelector } from "react-redux";
 
 const ProductList = () => {
-  const [products, setProducts] = useState([]);
-  const [loading, setIsLoading] = useState(false);
-  const [error, setError] = useState(false);
-  const getAllProducts = async () => {
-    setIsLoading(true);
-    setError(null);
-
-    try {
-      const { data } = await axios.get("/api/products");
-
-      setProducts(data);
-    } catch (err) {
-      setError(err.message);
-    }
-    setIsLoading(false);
-  };
-
+  const selectProductState = useSelector((state) => state.productList);
+  const dispatch = useDispatch();
+  const { products, isLoading, error } = selectProductState;
   useEffect(() => {
-    getAllProducts();
+    dispatch(fetchProducts());
   }, []);
 
   return (
     <section className="grid-products">
-      {loading ? (
-        <LoadingBox/>
-      ) : error  ? (
+      {isLoading ? (
+        <LoadingBox />
+      ) : error ? (
         <MessageBox variant="danger">{error}</MessageBox>
-      ) :  (
+      ) : (
         products.map((product) => (
           <ProductItem
             key={product._id}
