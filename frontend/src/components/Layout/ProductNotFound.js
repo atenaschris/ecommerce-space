@@ -1,9 +1,9 @@
 import React from 'react'
 
-const ProductNotFound = () => {
+const ProductNotFound = ({message}) => {
     return (
         <div className="product-not-found">
-            <p>Product Not Found!!!</p>
+            <p>{message}</p>
         </div>
     )
 }

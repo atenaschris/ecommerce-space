@@ -17,34 +17,40 @@ const ProductDetail = () => {
 
   const ProductId = params.productId;
 
-  console.log(typeof(ProductId));
+  console.log(typeof ProductId);
 
   const dispatch = useDispatch();
 
   const selectSingleProductState = useSelector((state) => state.singleProduct);
 
-  const { singleProduct, isLoading, error } = selectSingleProductState;
+  const { singleProduct, isLoading, error, notFoundError } =
+    selectSingleProductState;
 
   useEffect(() => {
     dispatch(fetchProductDetail(+ProductId));
   }, [ProductId]);
 
   return (
-    <section className="grid-detail">
+    <>
       {isLoading ? (
         <p>
           <LoadingBox />
         </p>
       ) : error ? (
         <MessageBox variant="danger">{error}</MessageBox>
-      ) : singleProduct.name ? (
-        <>
+      ) : notFoundError ? (
+        <ProductNotFound message={notFoundError.message} />
+      ) : (
+        <section className="grid-detail">
           <figure className="product-detail-image-section">
             <img src={singleProduct.image} alt={singleProduct.name} />
           </figure>
           <div className="product-detail-details-section">
             <h2>{singleProduct.name}</h2>
-            <ProductRating rating={singleProduct.rating} numreviews={singleProduct.numReviews} />
+            <ProductRating
+              rating={singleProduct.rating}
+              numreviews={singleProduct.numReviews}
+            />
             <p>Price : $ {singleProduct.price}</p>
             <p>Description: {singleProduct.description}</p>
           </div>
@@ -65,11 +71,9 @@ const ProductDetail = () => {
               <button>Add to Cart</button>
             </div>
           </div>
-        </>
-      ) : (
-        <ProductNotFound />
+        </section>
       )}
-    </section>
+    </>
   );
 };
 
