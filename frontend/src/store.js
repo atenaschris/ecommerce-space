@@ -20,4 +20,9 @@ const store = createStore(
 
 console.log(store.getState())
 
+export const selectProductState = state =>state.productList;
+export const selectSingleProductState = state => state.singleProduct;
+
 export default store;
+
+

@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import ProductNotFound from "../components/Layout/ProductNotFound";
 import { fetchProductDetail } from "../actions/productActions";
 import LoadingBox from "../components/UI/LoadingBox";
-import MessageBox from "../components/UI/MessageBox";
+import { selectSingleProductState } from "../store";
 
 const ProductDetail = () => {
   const params = useParams();
@@ -21,14 +21,14 @@ const ProductDetail = () => {
 
   const dispatch = useDispatch();
 
-  const selectSingleProductState = useSelector((state) => state.singleProduct);
+  const singleProductState = useSelector(selectSingleProductState);
 
-  const { singleProduct, isLoading, error, notFoundError } =
-    selectSingleProductState;
+  const { singleProduct, isLoading, error } =
+  singleProductState;
 
   useEffect(() => {
-    dispatch(fetchProductDetail(+ProductId));
-  }, [ProductId]);
+    dispatch(fetchProductDetail(ProductId));
+  }, [dispatch,ProductId]);
 
   return (
     <>
@@ -37,9 +37,7 @@ const ProductDetail = () => {
           <LoadingBox />
         </p>
       ) : error ? (
-        <MessageBox variant="danger">{error}</MessageBox>
-      ) : notFoundError ? (
-        <ProductNotFound message={notFoundError.message} />
+        <ProductNotFound message={error}/>
       ) : (
         <section className="grid-detail">
           <figure className="product-detail-image-section">

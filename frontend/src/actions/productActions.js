@@ -34,24 +34,16 @@ export const fetchProductDetail = (ProductId) => async (dispatch) => {
     type: PRODUCT_DETAIL_REQUEST,
   });
   try {
-    const { data } = await axios.get("/api/products");
-    const filteredProduct = data.find((el) => el._id === ProductId);
-    console.log(filteredProduct);
-    if (!filteredProduct) {
-      dispatch({
-        type: PRODUCT_DETAIL_FAIL_NOT_FOUND,
-        payload: { message: "The product you are finding does not exists!!!" },
-      });
-    } else if (filteredProduct) {
-      dispatch({
-        type: PRODUCT_DETAIL_SUCCESS,
-        payload: filteredProduct,
-      });
-    }
+    const { data } = await axios.get(`/api/products/${ProductId}`);
+
+    dispatch({
+      type: PRODUCT_DETAIL_SUCCESS,
+      payload: data,
+    });
   } catch (err) {
     dispatch({
       type: PRODUCT_DETAIL_FAIL,
-      payload: err.message,
+      payload: err.response && err.response.data.message ? err.response.data.message : err.message,
     });
   }
 };

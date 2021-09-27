@@ -4,21 +4,22 @@ import LoadingBox from "../UI/LoadingBox";
 import MessageBox from "../UI/MessageBox";
 import { fetchProducts } from "../../actions/productActions";
 import { useDispatch, useSelector } from "react-redux";
+import { selectProductState } from "../../store";
+import ProductNotFound from "../Layout/ProductNotFound";
 
 const ProductList = () => {
-  const selectProductState = useSelector((state) => state.productList);
   const dispatch = useDispatch();
-  const { products, isLoading, error } = selectProductState;
+  const { products, isLoading, error } = useSelector(selectProductState);
   useEffect(() => {
     dispatch(fetchProducts());
-  }, []);
+  }, [dispatch]);
 
   return (
      <section className="grid-products">
       {isLoading ? (
         <LoadingBox />
       ) : error ? (
-        <MessageBox variant="danger">{error}</MessageBox>
+       <ProductNotFound message={error} />
       ) : (
         products.map((product) => (
           <ProductItem
