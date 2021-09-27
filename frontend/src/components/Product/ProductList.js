@@ -14,7 +14,7 @@ const ProductList = () => {
   }, []);
 
   return (
-    <section className="grid-products">
+     <section className="grid-products">
       {isLoading ? (
         <LoadingBox />
       ) : error ? (
@@ -35,7 +35,7 @@ const ProductList = () => {
           />
         ))
       )}
-    </section>
+    </section> 
   );
 };
 

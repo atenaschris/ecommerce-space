@@ -2,11 +2,14 @@ import {
   PRODUCT_LIST_REQUEST,
   PRODUCT_LIST_SUCCESS,
   PRODUCT_LIST_FAIL,
+  PRODUCT_DETAIL_REQUEST,
+  PRODUCT_DETAIL_SUCCESS,
+  PRODUCT_DETAIL_FAIL
 } from "../constants/productConstants";
 
 import axios from "axios";
 
- export const fetchProducts = () => async (dispatch) => {
+export const fetchProducts = () => async (dispatch) => {
   dispatch({
     type: PRODUCT_LIST_REQUEST,
   });
@@ -24,3 +27,22 @@ import axios from "axios";
   }
 };
 
+export const fetchProductDetail = (ProductId) => async (dispatch) => {
+  console.log(ProductId);
+  dispatch({
+    type: PRODUCT_DETAIL_REQUEST,
+  });
+  try {
+    const { data } = await axios.get("/api/products");
+    const filteredProduct = data.find(el=>el._id === ProductId);
+    dispatch({
+      type:PRODUCT_DETAIL_SUCCESS,
+      payload:filteredProduct 
+    })
+  } catch (err) {
+    dispatch({
+      type:PRODUCT_DETAIL_FAIL,
+      payload:err.message
+    })
+  }
+};
