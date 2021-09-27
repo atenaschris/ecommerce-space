@@ -444,3 +444,7 @@ figure {
   cursor: pointer;
   transition-timing-function: ease-in-out;
 }
+
+.qty{
+  margin-bottom: 1.5rem;
+}

@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import ProductRating from "../components/Product/ProductRating";
 
-import { useParams } from "react-router";
+import { useHistory, useParams } from "react-router";
 import { useEffect } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
@@ -12,6 +12,7 @@ import LoadingBox from "../components/UI/LoadingBox";
 import { selectSingleProductState } from "../store";
 
 const ProductDetail = () => {
+   const [qty,setQty] = useState(1)
   const params = useParams();
   console.log(params);
 
@@ -21,14 +22,24 @@ const ProductDetail = () => {
 
   const dispatch = useDispatch();
 
+  const history = useHistory();
+
   const singleProductState = useSelector(selectSingleProductState);
 
-  const { singleProduct, isLoading, error } =
-  singleProductState;
+  const { singleProduct, isLoading, error } = singleProductState;
 
   useEffect(() => {
     dispatch(fetchProductDetail(ProductId));
-  }, [dispatch,ProductId]);
+  }, [dispatch, ProductId]);
+
+
+  const setQtyHandler = e =>{
+    setQty(e.target.value);
+  }
+
+  const addToCartHandler = ()=>{
+    history.push(`/cart/${ProductId}?qty=${qty}`);
+  }
 
   return (
     <>
@@ -37,7 +48,7 @@ const ProductDetail = () => {
           <LoadingBox />
         </p>
       ) : error ? (
-        <ProductNotFound message={error}/>
+        <ProductNotFound message={error} />
       ) : (
         <section className="grid-detail">
           <figure className="product-detail-image-section">
@@ -65,9 +76,24 @@ const ProductDetail = () => {
                 <p className="unavailable">Unavailable</p>
               )}
             </div>
-            <div>
-              <button>Add to Cart</button>
-            </div>
+            {singleProduct.countInStock > 0 && (
+              <>
+                <div className="row qty">
+                  <div>Qty</div>
+                  <div>
+                    <select value={qty} onChange={setQtyHandler}>
+                      {[...Array(singleProduct.countInStock).keys()].map(el=>(
+                        <option value={el+1} key={el+1}>{el+1}</option>
+                      ))}
+
+                    </select>
+                  </div>
+                </div>
+                <div>
+                  <button onClick={addToCartHandler}>Add to Cart</button>
+                </div>
+              </>
+            )}
           </div>
         </section>
       )}
