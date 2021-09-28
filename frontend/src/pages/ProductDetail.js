@@ -9,9 +9,10 @@ import { useDispatch, useSelector } from "react-redux";
 import ProductNotFound from "../components/Layout/ProductNotFound";
 import { fetchProductDetail } from "../actions/productActions";
 import LoadingBox from "../components/UI/LoadingBox";
-import { selectSingleProductState } from "../store";
+import { selectSingleProductState,selectCartState } from "../store";
 
 const ProductDetail = () => {
+
   const [qty, setQty] = useState(1);
   const params = useParams();
   console.log(params);

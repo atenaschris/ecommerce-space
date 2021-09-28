@@ -7,6 +7,8 @@ export const cartReducer = (
   switch (action.type) {
     case CART_ADD_ITEM:
       const item = action.payload;
+
+      
       const totalPrice =  item.price * item.qty;
       console.log(state.totalPrice);
       console.log(state.cartItems);

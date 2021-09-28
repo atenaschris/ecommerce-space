@@ -7,17 +7,24 @@ const ProductCartItem = ({ cartItem }) => {
           <img src={image} alt={name} />
       </figure>
       <div>
-          Titolo:<br/><br/> {name}
+          <p>Titolo:</p>
+          <p>{name}</p> 
       </div>
       <div>
-          Taglia:<br/><br/> 36
+          <p>Taglia:</p>
+            <p>36</p>
       </div>
       <div>
-          Prezzo:<br/><br/> £{price}
+          <p>Prezzo: </p>
+         <p>£{price}</p>
       </div>
-      <div className="row">
-          <button>+</button>
-          <button>-</button>
+      <div>
+          <p>Amount:</p>
+         <select defaultValue={qty}>
+             {[...Array(countInStock).keys()].map((el,i)=>(
+                 <option key={i} value={el + 1} >{el + 1}</option>
+             ))}
+         </select>
       </div>
      
   </div>;
