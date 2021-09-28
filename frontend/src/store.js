@@ -10,8 +10,10 @@ import { cartReducer } from "./reducers/cartReducers";
 
 const initialState = {
   cart:{
-    cartItems : localStorage.getItem('cartItems') ? JSON.parse(localStorage.getItem('cartItems')) : []
+    cartItems: localStorage.getItem('cartItems') ? JSON.parse(localStorage.getItem('cartItems')) : [],
+    totalPrice: localStorage.getItem('totalPrice') ? JSON.parse(localStorage.getItem('totalPrice')) : []
   }
+
 };
 
 const reducer = combineReducers({

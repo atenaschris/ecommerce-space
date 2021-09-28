@@ -7,6 +7,7 @@ import { addToCart } from "../actions/cartActions";
 import ProductCartList from "../components/cart/ProductCartList";
 import { selectCartState } from "../store";
 import { useSelector } from "react-redux";
+import CheckoutForm from "../components/cart/CheckoutForm";
 const CartPage = () => {
   const params = useParams();
 
@@ -16,7 +17,7 @@ const CartPage = () => {
 
   const cartState = useSelector(selectCartState);
 
-  const {cartItems} = cartState;
+  const { cartItems } = cartState;
 
   const { id } = params;
 
@@ -26,6 +27,8 @@ const CartPage = () => {
 
   console.log(qty);
 
+  const numOfProductsInTheCart = cartItems.length;
+
   useEffect(() => {
     if (id) {
       dispatch(addToCart(id, qty));
@@ -34,9 +37,12 @@ const CartPage = () => {
 
   return (
     <div className="grid-cart-page">
-      <div>Benventi nel nostro carrello!! Hai selezionato {cartItems.length} prodotti</div>
+      <div>
+        Benventi nel nostro carrello!! Hai selezionato {numOfProductsInTheCart}{" "}
+        prodotti
+      </div>
       <ProductCartList />
-      <div>checkoutForm</div>
+      <CheckoutForm />
     </div>
   );
 };

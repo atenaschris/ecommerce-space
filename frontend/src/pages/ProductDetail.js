@@ -10,10 +10,9 @@ import ProductNotFound from "../components/Layout/ProductNotFound";
 import { fetchProductDetail } from "../actions/productActions";
 import LoadingBox from "../components/UI/LoadingBox";
 import { selectSingleProductState } from "../store";
-import { addToCartAction } from "../actions/productActions";
 
 const ProductDetail = () => {
-   const [qty,setQty] = useState(1)
+  const [qty, setQty] = useState(1);
   const params = useParams();
   console.log(params);
 
@@ -33,14 +32,13 @@ const ProductDetail = () => {
     dispatch(fetchProductDetail(ProductId));
   }, [dispatch, ProductId]);
 
-
-  const setQtyHandler = e =>{
+  const setQtyHandler = (e) => {
     setQty(e.target.value);
-  }
+  };
 
-  const addToCartHandler = ()=>{
+  const addToCartHandler = () => {
     history.push(`/cart/${ProductId}?qty=${qty}`);
-  }
+  };
 
   return (
     <>
@@ -83,10 +81,13 @@ const ProductDetail = () => {
                   <div>Qty</div>
                   <div>
                     <select value={qty} onChange={setQtyHandler}>
-                      {[...Array(singleProduct.countInStock).keys()].map(el=>(
-                        <option value={el+1} key={el+1}>{el+1}</option>
-                      ))}
-
+                      {[...Array(singleProduct.countInStock).keys()].map(
+                        (el) => (
+                          <option value={el + 1} key={el + 1}>
+                            {el + 1}
+                          </option>
+                        )
+                      )}
                     </select>
                   </div>
                 </div>

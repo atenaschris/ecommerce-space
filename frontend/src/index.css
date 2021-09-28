@@ -486,10 +486,14 @@ figure {
 }
 .grid-cart-page div:nth-child(2) {
   grid-area: productList;
-  
   padding: 15px;
+ 
 }
 .grid-cart-page div:last-child {
   grid-area: checkout;
   padding: 15px;
+}
+
+.product-cart-item-img {
+  filter: drop-shadow(0px 0px 15px #8888883f);
 }
