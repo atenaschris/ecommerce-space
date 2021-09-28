@@ -12,6 +12,7 @@ html {
   font-size: 62.5%;
   box-sizing: border-box;
   overflow-x: hidden;
+  color: var(--third-color);
 }
 .App {
   height: 100%;
@@ -74,15 +75,12 @@ body {
   border: 2px solid var(--third-color);
 }
 
-.badge span{
+.badge span {
   color: var(--secondary-color);
 }
-.nav-links i{
+.nav-links i {
   font-size: larger;
- 
 }
-
-
 
 /* Start css welcome page */
 
@@ -467,4 +465,31 @@ figure {
 
 .qty {
   margin-bottom: 1.5rem;
+}
+/* end WhoWeAre css  */
+
+/* start Cart page css */
+
+.grid-cart-page {
+  display: grid;
+  height: 100%;
+  grid-template-areas: "welcome welcome checkout "
+  "productList productList checkout "
+  "productList productList checkout";
+  gap:25px;
+}
+
+.grid-cart-page div:first-child {
+  grid-area: welcome;
+  place-self: center center;
+  padding: 15px;
+}
+.grid-cart-page div:nth-child(2) {
+  grid-area: productList;
+  
+  padding: 15px;
+}
+.grid-cart-page div:last-child {
+  grid-area: checkout;
+  padding: 15px;
 }
