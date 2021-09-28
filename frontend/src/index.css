@@ -24,7 +24,7 @@ body {
   font-family: Helvetica, Arial, sans-serif;
 }
 
-.product-not-found{
+.product-not-found {
   color: white;
   display: flex;
   height: 100%;
@@ -34,28 +34,55 @@ body {
   font-size: 50px;
   letter-spacing: 1.6px;
   text-transform: uppercase;
-  text-shadow:  1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 2px 1px #EEEEEE, 3px 2px 1px #CCCCCC, 2px 3px 1px #EEEEEE, 4px 3px 1px #CCCCCC, 3px 4px 1px #EEEEEE, 5px 4px 1px #CCCCCC, 4px 5px 1px #EEEEEE, 6px 5px 1px #CCCCCC, 5px 6px 1px #EEEEEE, 7px 6px 1px #CCCCCC;
+  text-shadow: 1px 0px 1px #cccccc, 0px 1px 1px #eeeeee, 2px 1px 1px #cccccc,
+    1px 2px 1px #eeeeee, 3px 2px 1px #cccccc, 2px 3px 1px #eeeeee,
+    4px 3px 1px #cccccc, 3px 4px 1px #eeeeee, 5px 4px 1px #cccccc,
+    4px 5px 1px #eeeeee, 6px 5px 1px #cccccc, 5px 6px 1px #eeeeee,
+    7px 6px 1px #cccccc;
 }
 
-.alert{
-  padding:1rem;
-  border:0.1rem solid transparent;
-  border-radius:0.5rem;
+.alert {
+  padding: 1rem;
+  border: 0.1rem solid transparent;
+  border-radius: 0.5rem;
 }
-.alert-info{
-  color:var(--main-color);
+.alert-info {
+  color: var(--main-color);
   background-color: var(--secondary-color);
 }
 
-.alert-danger{
-  color:#a02020;
-  background-color: var(--secondary-color) ;
+.alert-danger {
+  color: #a02020;
+  background-color: var(--secondary-color);
 }
 
-.center{
+.center {
   text-align: center;
   text-transform: uppercase;
 }
+
+.badge {
+  margin-left: 0.5rem;
+  color: var(--main-color);
+  background-color: var(--third-color);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 20px;
+  padding: 2px;
+  border-radius: 50%;
+  border: 2px solid var(--third-color);
+}
+
+.badge span{
+  color: var(--secondary-color);
+}
+.nav-links i{
+  font-size: larger;
+ 
+}
+
+
 
 /* Start css welcome page */
 
@@ -75,9 +102,9 @@ nav {
   background-color: var(--secondary-color);
   padding: 5px 20px;
   position: fixed;
-  top:0;
+  top: 0;
   width: calc(100% - 2.9rem);
-  min-height:60px;
+  min-height: 60px;
   z-index: 1;
 }
 main {
@@ -116,7 +143,7 @@ a:hover {
   color: rgba(255, 255, 255, 0.966);
 }
 
-nav .nav-links a{
+nav .nav-links a {
   margin: 0px 10px;
 }
 
@@ -137,7 +164,7 @@ nav a::before {
 nav a:hover::before {
   opacity: 1;
   transform: scale(1);
-  top: 20px;
+  top: 26px;
 }
 nav div:first-child a {
   padding-bottom: 4px;
@@ -157,7 +184,7 @@ nav div:first-child a:hover::before {
 .row.center {
   justify-content: center;
 }
-.row.column{
+.row.column {
   flex-direction: column;
 }
 
@@ -245,11 +272,9 @@ figure {
 
 .grid-detail {
   display: grid;
-  grid-template-areas:
-    "image details addtochart"
-   ;
-  grid-template-columns:3fr 2fr 1fr;
-  grid-template-rows:500px  ;
+  grid-template-areas: "image details addtochart";
+  grid-template-columns: 3fr 2fr 1fr;
+  grid-template-rows: 500px;
   gap: 25px;
   color: var(--third-color);
 }
@@ -260,7 +285,6 @@ figure {
       "image image image "
       "details details addtochart ";
   }
-  
 }
 @media (max-width: 447px) {
   .grid-detail {
@@ -269,7 +293,6 @@ figure {
       "details details details "
       "addtochart addtochart addtochart";
   }
- 
 }
 
 .product-detail-image-section {
@@ -291,19 +314,18 @@ figure {
   align-items: center;
 }
 
-@media (max-width:1005px){
+@media (max-width: 1005px) {
   .product-detail-details-section {
     grid-area: details;
     place-self: center start;
   }
 }
-@media (max-width:447px){
+@media (max-width: 447px) {
   .product-detail-details-section {
     grid-area: details;
     place-self: center center;
   }
 }
-
 
 .product-detail-add-to-chart {
   grid-area: addtochart;
@@ -311,7 +333,6 @@ figure {
   padding: 10px;
   border-radius: 20px;
   place-self: center center;
- 
 }
 
 .product-detail-details-section ul {
@@ -345,12 +366,12 @@ figure {
   box-shadow: inset 1px 1px 2px #babecc, inset -1px -1px 2px var(--third-color);
 }
 
-.available{
+.available {
   color: green;
   margin: 0 0 8px 0;
 }
 
-.unavailable{
+.unavailable {
   color: red;
   margin: 0 0 8px 0;
 }
@@ -358,21 +379,21 @@ figure {
 /* End product detail css */
 /* start who-we-are css */
 
-.who-we-are-flex{
+.who-we-are-flex {
   display: flex;
   height: 100vh;
   justify-content: space-around;
-  align-items: center;  
+  align-items: center;
   flex-flow: row wrap;
 }
 
-@media (max-width:821px){
-  .who-we-are-flex{
+@media (max-width: 821px) {
+  .who-we-are-flex {
     margin-top: 50px;
   }
 }
 
-.who-we-are-wrapper{
+.who-we-are-wrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -380,36 +401,35 @@ figure {
   position: relative;
 }
 
-.who-we-are-wrapper h2{
+.who-we-are-wrapper h2 {
   top: -115px;
   position: absolute;
   font-size: 1.7em;
   color: var(--secondary-color);
   font-weight: normal;
-  opacity:1;
+  opacity: 1;
   transition: all 0.4s ease;
   cursor: pointer;
 }
-.testimonial{
+.testimonial {
   width: 390px;
   position: relative;
   filter: drop-shadow(0px 0px 15px #8888883f);
 }
 
-@media (max-width:439px){
-  .testimonial{
+@media (max-width: 439px) {
+  .testimonial {
     width: 280px;
-    
   }
 }
 
 .testimonial .text {
   font-weight: 500;
-  background-color: rgb(0,0,0,0.8);
+  background-color: rgb(0, 0, 0, 0.8);
   border-radius: 10px;
   padding: 45px 10px 25px 30px;
   height: 200px;
-  opacity:0;
+  opacity: 0;
 }
 .testimonial .text p {
   color: #555;
@@ -431,7 +451,7 @@ figure {
   height: 225px;
   top: 0;
   left: 50%;
-  opacity:1;
+  opacity: 1;
   transform: translateX(-50%);
   cursor: pointer;
   transition-timing-function: ease-in-out;
@@ -445,6 +465,6 @@ figure {
   transition-timing-function: ease-in-out;
 }
 
-.qty{
+.qty {
   margin-bottom: 1.5rem;
 }

@@ -10,6 +10,7 @@ import ProductNotFound from "../components/Layout/ProductNotFound";
 import { fetchProductDetail } from "../actions/productActions";
 import LoadingBox from "../components/UI/LoadingBox";
 import { selectSingleProductState } from "../store";
+import { addToCartAction } from "../actions/productActions";
 
 const ProductDetail = () => {
    const [qty,setQty] = useState(1)

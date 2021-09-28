@@ -5,7 +5,7 @@ import {
   PRODUCT_DETAIL_REQUEST,
   PRODUCT_DETAIL_SUCCESS,
   PRODUCT_DETAIL_FAIL,
-  PRODUCT_DETAIL_FAIL_NOT_FOUND,
+  CART_ADD_ITEM,
 } from "../constants/productConstants";
 
 import axios from "axios";
@@ -43,7 +43,10 @@ export const fetchProductDetail = (ProductId) => async (dispatch) => {
   } catch (err) {
     dispatch({
       type: PRODUCT_DETAIL_FAIL,
-      payload: err.response && err.response.data.message ? err.response.data.message : err.message,
+      payload:
+        err.response && err.response.data.message
+          ? err.response.data.message
+          : err.message,
     });
   }
 };
