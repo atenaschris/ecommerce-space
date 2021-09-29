@@ -7,21 +7,25 @@ export const cartReducer = (
   switch (action.type) {
     case CART_ADD_ITEM:
       const item = action.payload;
-
-      
-      const totalPrice =  item.price * item.qty;
+      let totalPrice = item.price * item.qty;
       console.log(state.totalPrice);
       console.log(state.cartItems);
       const existItem = state.cartItems.find(
         (el) => el.product === item.product
       );
       if (existItem) {
+        const existItemIndex = state.cartItems.findIndex(
+          (el) => el.product === item.product
+        );
+
+        state.totalPrice[existItemIndex] = totalPrice;
+
         return {
           ...state,
           cartItems: state.cartItems.map((x) =>
             x.product === existItem.product ? item : x
           ),
-          totalPrice: [...state.totalPrice, totalPrice],
+          totalPrice: state.totalPrice,
         };
       } else {
         return {

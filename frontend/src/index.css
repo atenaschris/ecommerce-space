@@ -497,3 +497,18 @@ figure {
 .product-cart-item-img {
   filter: drop-shadow(0px 0px 15px #8888883f);
 }
+.button-remove button{
+  background-color: transparent;
+  padding: 5px 20px;
+  border-radius: 20px;
+  border: none;
+  outline: 2px solid var(--secondary-color);
+  color: var(--secondary-color);
+  transition: all 0.3s ease-in;
+}
+
+.button-remove button:hover{
+  background-color: var(--secondary-color);
+  color:var(--third-color);
+  outline: 2px solid var(--third-color);
+}

@@ -38,8 +38,10 @@ const CartPage = () => {
   return (
     <div className="grid-cart-page">
       <div>
-        Benventi nel nostro carrello!! Hai selezionato {numOfProductsInTheCart}{" "}
-        prodotti
+        Benventi nel nostro carrello!! Hai selezionato{" "}
+        {numOfProductsInTheCart > 1
+          ? numOfProductsInTheCart + " prodotti"
+          : numOfProductsInTheCart + " prodotto"}
       </div>
       <ProductCartList />
       <CheckoutForm />

@@ -17,7 +17,7 @@ const CheckoutForm = () => {
       {
         <p>
           Subtotal{" "}
-          {`(${numOfProductsInTheCart}) items : ${totalPriceFromatted}`}
+          {`(${numOfProductsInTheCart > 1 ? 'prodotti' : 'prodotto' }) : € ${totalPriceFromatted}`}
         </p>
       }
     </div>
