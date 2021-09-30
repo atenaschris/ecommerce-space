@@ -44,7 +44,7 @@ const ProductCartItem = ({ cartItem }) => {
       </div>
       <div>
         <p>Amount:</p>
-        <select value={newqty} onChange={setQtyHandler}>
+        <select value={qty} onChange={setQtyHandler}>
           {[...Array(countInStock).keys()].map((el, i) => (
             <option key={i} value={el + 1}>
               {el + 1}

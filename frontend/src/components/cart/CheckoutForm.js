@@ -12,15 +12,21 @@ const CheckoutForm = () => {
   }, 0);
 
   const numOfProductsInTheCart = cartItems.length;
+
+  const TotalQuantityOfItemSelected = cartItems.map(el=>+el.qty).reduce((t,n)=>t+n,0);
+
+  console.log(TotalQuantityOfItemSelected);
+
+  
   return (
     <div>
       {
         <p>
           Subtotal{" "}
           {`(${
-            numOfProductsInTheCart > 1
-              ? `${numOfProductsInTheCart} prodotti`
-              : `${numOfProductsInTheCart} prodotto`
+            TotalQuantityOfItemSelected > 1
+              ? `${TotalQuantityOfItemSelected} prodotti`
+              : `${TotalQuantityOfItemSelected} prodotto`
           }) : € ${totalPriceFromatted}`}
         </p>
       }
