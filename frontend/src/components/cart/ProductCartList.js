@@ -8,10 +8,13 @@ const ProductCartList = () => {
     const cartState = useSelector(selectCartState);
 
     const {cartItems} = cartState;
+
+   
+
     return (
         <div>
            {cartItems.map((cartItem,i)=>(
-               <ProductCartItem key={i} cartItem={cartItem}/>
+               <ProductCartItem  key={i} cartItem={cartItem}/>
            ))}
         </div>
     )

@@ -20,6 +20,7 @@ export const cartReducer = (
         );
 
         state.totalPrice[existItemIndex] = totalPrice;
+        
 
         return {
           ...state,
@@ -41,10 +42,10 @@ export const cartReducer = (
       const existItemIndexToRemove = state.cartItems.findIndex(
         (el) => el.product === itemToRemove.product
       );
-
       console.log(existItemIndexToRemove);
       state.cartItems.splice(existItemIndexToRemove, 1);
       state.totalPrice.splice(existItemIndexToRemove, 1);
+      ;
       return {
         ...state,
         cartItems: state.cartItems,

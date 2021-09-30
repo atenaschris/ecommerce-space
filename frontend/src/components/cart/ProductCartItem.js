@@ -1,12 +1,25 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { addToCart, removeItemFromCart } from "../../actions/cartActions";
+import { selectCartState } from "../../store";
+import { useHistory } from "react-router";
+import { useSelector } from "react-redux";
+import { useLocation } from "react-router";
 
 const ProductCartItem = ({ cartItem }) => {
   const { product, name, image, price, countInStock, qty } = cartItem;
   const [newqty, setNewQty] = useState(qty);
   const [newqtySelected, setNewQtySelected] = useState(false);
+  const [itemRemoved, setItemRemoved] = useState(false);
   const dispatch = useDispatch();
+  const history = useHistory();
+  const location = useLocation();
+
+  /* const { cartItems } = useSelector(selectCartState); */
+
+  /* console.log(cartItems); */
+
+  /* const history = useHistory(); */
 
   const setQtyHandler = (e) => {
     setNewQty(e.target.value);
@@ -15,7 +28,22 @@ const ProductCartItem = ({ cartItem }) => {
 
   const removeCartItemHandler = () => {
     dispatch(removeItemFromCart(product, qty));
+    setItemRemoved(true);
+    /* console.log('running');
+    console.log(cartItems);
+    if (cartItems.length === 1) {
+      history.push(`/`);
+    } */
   };
+  useEffect(() => {
+    const queryParams = new URLSearchParams(location.search);
+    if (queryParams.has("qty") && itemRemoved) {
+      queryParams.delete("qty");
+      history.replace({
+        search: queryParams.toString(),
+      });
+    }
+  }, [itemRemoved, history, location]);
 
   useEffect(() => {
     if (newqty && newqtySelected) {

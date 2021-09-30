@@ -7,9 +7,9 @@ const CheckoutForm = () => {
   const cartState = useSelector(selectCartState);
   const { cartItems, totalPrice } = cartState;
 
-  const totalPriceFromatted = totalPrice.reduce((t, n) => {
-    return t + n;
-  }, 0);
+  const totalPriceOfTheItems = totalPrice.reduce((t,n)=>t+n,0);
+
+  console.log(totalPriceOfTheItems)
 
   const TotalQuantityOfItemSelected = cartItems
     .map((el) => +el.qty)
@@ -17,19 +17,24 @@ const CheckoutForm = () => {
 
   console.log(TotalQuantityOfItemSelected);
 
+  let noproducts = TotalQuantityOfItemSelected === 0;   
+
+  console.log(noproducts);
+
   return (
     <div className="checkout-form-wrapper">
       <p>
-        Quantità di prodotti totali{" "}
-        {`(${
-          TotalQuantityOfItemSelected > 1
-            ? `${TotalQuantityOfItemSelected} prodotti`
-            : `${TotalQuantityOfItemSelected} prodotto`
-        }) : € ${totalPriceFromatted}`}
+        Quantità di prodotti totali:{" "}
+        {TotalQuantityOfItemSelected === 1
+          ? TotalQuantityOfItemSelected + " prodotto"
+          : TotalQuantityOfItemSelected + " prodotti"}
+      </p>
+      <p>
+        Totale : ${totalPriceOfTheItems}
       </p>
 
       <div className="checkout-actions">
-        <button>Checkout</button>
+        <button disabled={noproducts}>Checkout</button>
       </div>
     </div>
   );

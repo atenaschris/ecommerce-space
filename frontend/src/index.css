@@ -123,6 +123,9 @@ ul {
   margin: 0;
   padding: 0;
 }
+button{
+  cursor: pointer;
+}
 /* Common */
 
 a,
@@ -557,13 +560,21 @@ figure {
 }
 
 .checkout-actions button {
-  background-color: transparent;
+  background-color: var(--main-color);
   padding: 5px 20px;
   border: 1px solid var(--main-color);
-  outline: 2px solid var(--secondary-color);
-  color: var(--main-color);
+  outline: 2px solid var(--third-color);
+  color: var(--third-color);
   transition: all 0.3s ease-in;
   width: 100%;
+}
+.checkout-actions button:disabled{
+  cursor: not-allowed;
+  background-color: rgba(0,0,0,0.5);
+}
+.checkout-actions button:hover:disabled{
+  cursor: not-allowed;
+  background-color: rgba(255,255,255,0.5)
 }
 .checkout-actions button:hover {
   background-color: var(--third-color);

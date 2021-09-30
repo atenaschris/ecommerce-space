@@ -9,19 +9,20 @@ import { useDispatch, useSelector } from "react-redux";
 import ProductNotFound from "../components/Layout/ProductNotFound";
 import { fetchProductDetail } from "../actions/productActions";
 import LoadingBox from "../components/UI/LoadingBox";
-import { selectSingleProductState,selectCartState } from "../store";
+import { selectSingleProductState } from "../store";
+import { addToCart } from "../actions/cartActions";
 
 const ProductDetail = () => {
-
   const [qty, setQty] = useState(1);
   const params = useParams();
   console.log(params);
 
+  const dispatch = useDispatch();
+
+
   const ProductId = params.productId;
 
   console.log(typeof ProductId);
-
-  const dispatch = useDispatch();
 
   const history = useHistory();
 

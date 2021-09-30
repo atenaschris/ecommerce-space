@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 import { useParams } from "react-router";
 import { useLocation } from "react-router";
@@ -29,9 +29,8 @@ const CartPage = () => {
 
   const numOfProductsInTheCart = cartItems.length;
 
-
   useEffect(() => {
-    if (id) {
+    if (id && qty) {
       dispatch(addToCart(id, qty));
     }
   }, [id, qty, dispatch]);
@@ -40,9 +39,9 @@ const CartPage = () => {
     <div className="grid-cart-page">
       <h2>
         Benventi nel nostro carrello!! Hai selezionato{" "}
-        {numOfProductsInTheCart > 1
-          ? numOfProductsInTheCart + " prodotti"
-          : numOfProductsInTheCart + " prodotto"}
+        {numOfProductsInTheCart === 1
+          ? numOfProductsInTheCart + " prodotto"
+          : numOfProductsInTheCart + " prodotti"}
       </h2>
       <ProductCartList />
       <CheckoutForm />
