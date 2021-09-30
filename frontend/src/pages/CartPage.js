@@ -29,6 +29,7 @@ const CartPage = () => {
 
   const numOfProductsInTheCart = cartItems.length;
 
+
   useEffect(() => {
     if (id) {
       dispatch(addToCart(id, qty));
