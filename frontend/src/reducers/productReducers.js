@@ -29,7 +29,6 @@ export const SingleProductReducer = (
   state = { singleProduct: {}, isLoading: true, error: null },
   action
 ) => {
-  console.log(action);
   switch (action.type) {
     case PRODUCT_DETAIL_REQUEST:
       return { isLoading: true };

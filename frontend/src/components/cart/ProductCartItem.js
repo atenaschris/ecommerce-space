@@ -1,21 +1,29 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { addToCart } from "../../actions/cartActions";
+import { addToCart,removeItemFromCart } from "../../actions/cartActions";
 
 const ProductCartItem = ({ cartItem }) => {
   const { product, name, image, price, countInStock, qty } = cartItem;
   const [newqty, setNewQty] = useState(qty);
+  const[newqtySelected,setNewQtySelected] = useState(false);
   const dispatch = useDispatch();
 
   const setQtyHandler = (e) => {
     setNewQty(e.target.value);
+    setNewQtySelected(true);
   };
 
+  const removeCartItemHandler = () => {
+    dispatch(removeItemFromCart(product,qty));
+    
+  }
+
   useEffect(() => {
-    if (newqty) {
+    if (newqty && newqtySelected) {
       dispatch(addToCart(product, newqty));
+      setNewQtySelected(false);
     }
-  }, [product, newqty, dispatch]);
+  }, [product, newqty,newqtySelected, dispatch]);
 
   return (
     <div className="row">
