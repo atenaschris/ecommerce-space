@@ -17,7 +17,7 @@ userRouter.get(
   })
 );
 
-userRouter.get(
+userRouter.post(
   "/seed",
   expressAsyncHandler(async (req, res) => {
     await User.remove({});

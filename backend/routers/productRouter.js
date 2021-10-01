@@ -13,10 +13,10 @@ productRouter.get(
   })
 );
 
-productRouter.get(
+productRouter.post(
   "/seed",
   expressAsyncHandler(async (req, res) => {
-    await Product.remove({});
+    /* await Product.remove({}); */
     const insertedProducts = await Product.insertMany(data.products);
     res.send(insertedProducts);
   })
@@ -34,7 +34,7 @@ productRouter.get(
   })
 );
 
-productRouter.get(
+productRouter.delete(
   "/:id/delete",
   expressAsyncHandler(async (req, res) => {
     await Product.findOneAndDelete(req.params.id);
@@ -48,14 +48,17 @@ productRouter.put(
     const productToUpdate = await Product.findOneAndUpdate(
       req.params.id,
       {
-        name: "John",
+        name: "Gianna",
       },
       {
         new: true,
       }
     );
-
-    res.status(200).send(productToUpdate);
+    if (productToUpdate) {
+      res.send(productToUpdate);
+    } else {
+      res.status(404).send({ message: "Cannot update the given user " });
+    }
   })
 );
 
