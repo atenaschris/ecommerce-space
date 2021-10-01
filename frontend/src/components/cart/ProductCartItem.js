@@ -49,7 +49,7 @@ const ProductCartItem = ({ cartItem }) => {
     if (newqty && newqtySelected) {
       dispatch(addToCart(product, newqty));
       setNewQtySelected(false);
-    }
+    } 
   }, [product, newqty, newqtySelected, dispatch]);
 
   return (
