@@ -42,7 +42,7 @@ productRouter.get(
   })
 );
 
-productRouter.get(
+productRouter.put(
   "/:id/update",
   expressAsyncHandler(async (req, res) => {
     const productToUpdate = await Product.findOneAndUpdate(

@@ -38,7 +38,7 @@ userRouter.get(
   })
 );
 
-userRouter.get(
+userRouter.delete(
   "/:id/delete",
   expressAsyncHandler(async (req, res) => {
     await User.findByIdAndDelete(req.params.id);
@@ -46,7 +46,7 @@ userRouter.get(
   })
 );
 
-userRouter.get(
+userRouter.put(
   "/:id/update",
   expressAsyncHandler(async (req, res) => {
     const userToUpdate = await User.findOneAndUpdate(
