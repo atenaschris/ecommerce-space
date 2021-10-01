@@ -123,7 +123,7 @@ ul {
   margin: 0;
   padding: 0;
 }
-button{
+button {
   cursor: pointer;
 }
 /* Common */
@@ -487,21 +487,17 @@ figure {
   .grid-cart-page {
     grid-template-areas:
       "welcome welcome checkout "
-      "productList productList productList"
-      ;
+      "productList productList productList";
   }
 }
 
-@media (max-width:426px){
+@media (max-width: 426px) {
   .grid-cart-page {
     grid-template-areas:
       "welcome welcome welcome"
       "productList productList productList"
-      "checkout checkout checkout"
-      ;
-     
+      "checkout checkout checkout";
   }
-  
 }
 
 .grid-cart-page > h2:first-child {
@@ -517,11 +513,10 @@ figure {
   padding: 15px;
 }
 
-.grid-cart-page h2{
+.grid-cart-page h2 {
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 1.6px;
- 
 }
 
 .product-cart-item-img {
@@ -568,13 +563,13 @@ figure {
   transition: all 0.3s ease-in;
   width: 100%;
 }
-.checkout-actions button:disabled{
+.checkout-actions button:disabled {
   cursor: not-allowed;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0, 0, 0, 0.5);
 }
-.checkout-actions button:hover:disabled{
+.checkout-actions button:hover:disabled {
   cursor: not-allowed;
-  background-color: rgba(255,255,255,0.5)
+  background-color: rgba(255, 255, 255, 0.5);
 }
 .checkout-actions button:hover {
   background-color: var(--third-color);
@@ -588,19 +583,15 @@ figure {
   margin-bottom: 20px;
 }
 
-
-@media (max-width:566px){
-  .product-cart-item-wrapper{
+@media (max-width: 566px) {
+  .product-cart-item-wrapper {
     flex-flow: column wrap;
   }
-  
 }
 
-.product-cart-item-wrapper figure{
+.product-cart-item-wrapper figure {
   flex-shrink: 0;
 }
-
-
 
 .product-cart-item-details-wrapper {
   display: flex;
@@ -611,7 +602,6 @@ figure {
   text-align: center;
 }
 
-
 @media (max-width: 800px) {
   .product-cart-item-details-wrapper {
     flex-flow: column wrap;
@@ -619,9 +609,73 @@ figure {
   }
 }
 
-
-
-
 .product-cart-item-details-wrapper select {
   margin: 0px 0px 11px 0px;
+}
+/* end cart page css */
+
+/* start signinpage css */
+
+.auth-form-wrapper {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+}
+
+.auth-form-wrapper form {
+  padding: 20px;
+  text-align: center;
+  width: 80%;
+  max-width: 40rem;
+  background-color: var(--secondary-color);
+  letter-spacing: 1.6px;
+  border-radius: 20px;
+  border: 2px solid var(--third-color);
+}
+
+.group-controls {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.group-controls label {
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: var(--main-color);
+}
+.group-controls input {
+  border: none;
+  outline: none;
+  padding: 5px;
+}
+
+.auth-actions button {
+  background-color: var(--main-color);
+  padding: 5px 20px;
+  border: 1px solid var(--main-color);
+  outline: 2px solid var(--third-color);
+  color: var(--third-color);
+  transition: all 0.3s ease-in;
+  width: 100%;
+  letter-spacing: 1.6px;
+}
+
+.auth-actions button:hover {
+  background-color: var(--third-color);
+  color: var(--main-color);
+  outline: 2px solid var(--third-color);
+}
+
+.auth-actions button:disabled {
+  cursor: not-allowed;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.auth-actions button:hover:disabled {
+  cursor: not-allowed;
+  background-color: rgba(255, 255, 255, 0.5);
 }
