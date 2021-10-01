@@ -35,7 +35,6 @@ console.log(store.getState());
 
 export const selectProductState = (state) => state.productList;
 export const selectSingleProductState = (state) => state.singleProduct;
-
 export const selectCartState = (state) => state.cart;
 
 export default store;

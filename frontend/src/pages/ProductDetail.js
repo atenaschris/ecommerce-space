@@ -19,7 +19,6 @@ const ProductDetail = () => {
 
   const dispatch = useDispatch();
 
-
   const ProductId = params.productId;
 
   console.log(typeof ProductId);

@@ -16,7 +16,7 @@ productRouter.get(
 productRouter.get(
   "/seed",
   expressAsyncHandler(async (req, res) => {
-    /* await Product.remove({}); */
+    await Product.remove({});
     const insertedProducts = await Product.insertMany(data.products);
     res.send(insertedProducts);
   })
@@ -29,8 +29,33 @@ productRouter.get(
     if (!singleProduct) {
       res.status(404).send({ message: "Product not found!!!" });
     } else {
-      res.send( singleProduct );
+      res.send(singleProduct);
     }
+  })
+);
+
+productRouter.get(
+  "/:id/delete",
+  expressAsyncHandler(async (req, res) => {
+    await Product.findOneAndDelete(req.params.id);
+    res.status(200).send({ message: "Product deleted successfully!!!!" });
+  })
+);
+
+productRouter.get(
+  "/:id/update",
+  expressAsyncHandler(async (req, res) => {
+    const productToUpdate = await Product.findOneAndUpdate(
+      req.params.id,
+      {
+        name: "John",
+      },
+      {
+        new: true,
+      }
+    );
+
+    res.status(200).send(productToUpdate);
   })
 );
 
