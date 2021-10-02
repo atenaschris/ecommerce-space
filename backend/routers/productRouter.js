@@ -47,7 +47,7 @@ productRouter.put(
   expressAsyncHandler(async (req, res) => {
     const productToUpdate = await Product.findOneAndUpdate(
       req.params.id,
-      {
+      {   
         name: "Gianna",
       },
       {

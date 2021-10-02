@@ -1,8 +1,18 @@
 import React from "react";
 import useInput from "../../hooks/use-input";
 import MessageBox from "../UI/MessageBox";
+import { useDispatch, useSelector } from "react-redux";
+import { authenticateUser } from "../../actions/authActions";
+import { selectAuthState } from "../../store";
+import LoadingBox from "../UI/LoadingBox";
+import { useHistory } from "react-router";
 
 const AuthForm = () => {
+  const dispatch = useDispatch();
+  const history = useHistory();
+
+  const { user, isLoading, error } = useSelector(selectAuthState);
+
   const validateEmail = (value) => {
     const emailRegex =
       /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -45,17 +55,17 @@ const AuthForm = () => {
     if (!formIsValid) {
       return;
     }
- const data = {
-     email:emailValue,
-     password:passwordValue
- }
 
- console.log(data);
+    //send the request to the backend api to authenticate the user email and password,via dispatch
 
-    //send the request to the backend api to authenticate the user email and password
+    dispatch(authenticateUser(emailValue, passwordValue));
 
     resetEmailInputHandler();
     resetPasswordInputHandler();
+
+    if (user.name) {
+      history.push("/");
+    }
   };
 
   const emailErrorMessage =
@@ -64,6 +74,8 @@ const AuthForm = () => {
   const passwordErrorMessage =
     "La password deve contenere almeno 1 carattere, 1 numero, 1 carattere minuscolo, 1 carattere maiuscolo , dovrebbe contenere almeno 8 caratteri, un massimo di 30 caratteri e almeno 1 carattere speciale";
 
+  const inputEmailErrorClasses = `${emailHasError && "input-error"}`;
+  const inputPasswordErrorClasses = `${passwordHasError && "input-error"}`;
   return (
     <form onSubmit={submitFormHandler}>
       <div className="group-controls">
@@ -74,6 +86,7 @@ const AuthForm = () => {
           onBlur={blurEmailInputHandler}
           type="text"
           id="email"
+          className={inputEmailErrorClasses}
         />
         {emailHasError && (
           <MessageBox variant="danger fs-small">{emailErrorMessage}</MessageBox>
@@ -87,6 +100,7 @@ const AuthForm = () => {
           onBlur={blurPasswordInputHandler}
           type="text"
           id="password"
+          className={inputPasswordErrorClasses}
         />
         {passwordHasError && (
           <MessageBox variant="danger fs-small">
@@ -95,7 +109,9 @@ const AuthForm = () => {
         )}
       </div>
       <div className="auth-actions">
-        <button disabled={!formIsValid}>SignIn</button>
+        {!isLoading && <button disabled={!formIsValid}>SignIn</button>}
+        {isLoading && <LoadingBox />}
+        {error && <MessageBox variant="danger">{error}</MessageBox>}
       </div>
     </form>
   );

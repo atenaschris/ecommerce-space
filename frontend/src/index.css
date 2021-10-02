@@ -656,6 +656,16 @@ figure {
   padding: 5px;
 }
 
+
+
+.input-error{
+  border:2px solid red !important;
+}
+
+.input-error:hover{
+  background-color: rgba(255, 0, 0, 0.527);
+}
+
 .auth-actions button {
   background-color: var(--main-color);
   padding: 5px 20px;
