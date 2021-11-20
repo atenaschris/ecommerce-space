@@ -14,8 +14,8 @@ const CheckoutForm = () => {
   console.log(totalPriceOfTheItems)
 
   const TotalQuantityOfItemSelected = cartItems
-    .map((el) => +el.qty)
-    .reduce((t, n) => t + n, 0);
+    .map(({qty}) => +qty)
+    .reduce((t, n) => t + n, 0);  
 
   console.log(TotalQuantityOfItemSelected);
 

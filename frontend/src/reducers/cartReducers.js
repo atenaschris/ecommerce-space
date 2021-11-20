@@ -20,7 +20,6 @@ export const cartReducer = (
         );
 
         state.totalPrice[existItemIndex] = totalPrice;
-        
 
         return {
           ...state,
@@ -42,14 +41,18 @@ export const cartReducer = (
       const existItemIndexToRemove = state.cartItems.findIndex(
         (el) => el.product === itemToRemove.product
       );
-      console.log(existItemIndexToRemove);
-      state.cartItems.splice(existItemIndexToRemove, 1);
-      state.totalPrice.splice(existItemIndexToRemove, 1);
-      ;
+
+      const filteredItems = state.cartItems.filter(
+        (el) => el.product !== itemToRemove.product
+      );
+
       return {
         ...state,
-        cartItems: state.cartItems,
-        totalPrice: state.totalPrice,
+        cartItems: filteredItems,
+        totalPrice: [
+          ...state.totalPrice,
+          state.totalPrice.splice(existItemIndexToRemove, 1),
+        ],
       };
     default:
       return state;

@@ -15,12 +15,6 @@ const ProductCartItem = ({ cartItem }) => {
   const history = useHistory();
   const location = useLocation();
 
-  /* const { cartItems } = useSelector(selectCartState); */
-
-  /* console.log(cartItems); */
-
-  /* const history = useHistory(); */
-
   const setQtyHandler = (e) => {
     setNewQty(e.target.value);
     setNewQtySelected(true);
@@ -29,12 +23,8 @@ const ProductCartItem = ({ cartItem }) => {
   const removeCartItemHandler = () => {
     dispatch(removeItemFromCart(product, qty));
     setItemRemoved(true);
-    /* console.log('running');
-    console.log(cartItems);
-    if (cartItems.length === 1) {
-      history.push(`/`);
-    } */
   };
+
   useEffect(() => {
     const queryParams = new URLSearchParams(location.search);
     if (queryParams.has("qty") && itemRemoved) {
@@ -49,7 +39,7 @@ const ProductCartItem = ({ cartItem }) => {
     if (newqty && newqtySelected) {
       dispatch(addToCart(product, newqty));
       setNewQtySelected(false);
-    } 
+    }
   }, [product, newqty, newqtySelected, dispatch]);
 
   return (
@@ -72,7 +62,7 @@ const ProductCartItem = ({ cartItem }) => {
         </div>
         <div>
           <p>Amount:</p>
-          <select value={qty} onChange={setQtyHandler}>
+          <select defaultValue={qty} value={newqty} onChange={setQtyHandler}>
             {[...Array(countInStock).keys()].map((el, i) => (
               <option key={i} value={el + 1}>
                 {el + 1}

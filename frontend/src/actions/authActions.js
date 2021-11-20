@@ -3,40 +3,43 @@ import {
   SIGN_IN_ERROR,
   SIGN_IN_SUCCESS,
   SIGN_OUT,
-
 } from "../constants/authConstants";
 import axios from "axios";
 
-export const authenticateUser = (email, password) => async (dispatch) => {
-  dispatch({
-    type: SIGN_IN_LOADING,
-  });
-  try {
-    const { data } = await axios({
-      method: "post",
-      url: "/api/users/signin",
-      data: {
-        email,
-        password,
-      },
-    });
+export const authenticateUser =
+  (email, password) => async (dispatch, getState) => {
     dispatch({
-      type: SIGN_IN_SUCCESS,
-      payload: data,
+      type: SIGN_IN_LOADING,
     });
-  } catch (err) {
-    dispatch({
-      type: SIGN_IN_ERROR,
-      payload:
-        err.response && err.response.data.message
-          ? err.response.data.message
-          : err.message,
-    });
-  }
-};
+    try {
+      const { data } = await axios({
+        method: "post",
+        url: "/api/users/signin",
+        data: {
+          email,
+          password,
+        },
+      });
+      dispatch({
+        type: SIGN_IN_SUCCESS,
+        payload: data,
+      });
+
+      localStorage.setItem("auth", JSON.stringify(getState().auth.user));
+    } catch (err) {
+      dispatch({
+        type: SIGN_IN_ERROR,
+        payload:
+          err.response && err.response.data.message
+            ? err.response.data.message
+            : err.message,
+      });
+    }
+  };
 export const logoutUser = () => async (dispatch) => {
   dispatch({
-    type: SIGN_OUT
+    type: SIGN_OUT,
   });
- 
+
+  localStorage.removeItem("auth");
 };

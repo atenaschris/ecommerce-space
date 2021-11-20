@@ -33,10 +33,6 @@ const ProductDetail = () => {
     dispatch(fetchProductDetail(ProductId));
   }, [dispatch, ProductId]);
 
-  const setQtyHandler = (e) => {
-    setQty(e.target.value);
-  };
-
   const addToCartHandler = () => {
     history.push(`/cart/${ProductId}?qty=${qty}`);
   };
@@ -81,7 +77,7 @@ const ProductDetail = () => {
                 <div className="row qty">
                   <div>Qty</div>
                   <div>
-                    <select value={qty} onChange={setQtyHandler}>
+                    <select value={qty} onChange={(e) => setQty(e.target.value)}>
                       {[...Array(singleProduct.countInStock).keys()].map(
                         (el) => (
                           <option value={el + 1} key={el + 1}>

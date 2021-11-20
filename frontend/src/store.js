@@ -19,7 +19,9 @@ const initialState = {
       : [],
   },
   auth: {
-    user: {},
+    user: localStorage.getItem("auth")
+      ? JSON.parse(localStorage.getItem("auth"))
+      : {},
     isLoading: false,
     error: null,
   },

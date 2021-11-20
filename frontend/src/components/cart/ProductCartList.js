@@ -9,8 +9,6 @@ const ProductCartList = () => {
 
     const {cartItems} = cartState;
 
-   
-
     return (
         <div>
            {cartItems.map((cartItem,i)=>(
