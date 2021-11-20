@@ -32,7 +32,9 @@ const Navbar = () => {
           )}
         </Link>
         {user?.name ? (
-          <Link to="/" onClick={() => dispatch(logoutUser())}>logout</Link>
+          <Link to="/" onClick={() => dispatch(logoutUser())}>
+            Logout
+          </Link>
         ) : (
           <Link to="/signin">Sign In</Link>
         )}
