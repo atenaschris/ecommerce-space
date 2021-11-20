@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import useInput from "../../hooks/use-input";
 import MessageBox from "../UI/MessageBox";
 import { useDispatch, useSelector } from "react-redux";
@@ -12,6 +12,8 @@ const AuthForm = () => {
   const history = useHistory();
 
   const { user, isLoading, error } = useSelector(selectAuthState);
+
+  console.log(user);
 
   const validateEmail = (value) => {
     const emailRegex =
@@ -63,10 +65,14 @@ const AuthForm = () => {
     resetEmailInputHandler();
     resetPasswordInputHandler();
 
-    if (user.name) {
+    console.log(user);
+  };
+
+  useEffect(() => {
+    if (user?.name) {
       history.push("/");
     }
-  };
+  }, [user]);
 
   const emailErrorMessage =
     "La email non dovrebbe essere vuota e il valore dovrebbe contenere almeno la @ e l'estensione del dominio";

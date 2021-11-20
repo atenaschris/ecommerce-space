@@ -18,13 +18,18 @@ const initialState = {
       ? JSON.parse(localStorage.getItem("totalPrice"))
       : [],
   },
+  auth: {
+    user: {},
+    isLoading: false,
+    error: null,
+  },
 };
 
 const reducer = combineReducers({
   productList: ProductReducer,
   singleProduct: SingleProductReducer,
   cart: cartReducer,
-  auth: authReducer
+  auth: authReducer,
 });
 
 const store = createStore(
@@ -38,6 +43,6 @@ console.log(store.getState());
 export const selectProductState = (state) => state.productList;
 export const selectSingleProductState = (state) => state.singleProduct;
 export const selectCartState = (state) => state.cart;
-export const selectAuthState = state =>state.auth;
+export const selectAuthState = (state) => state.auth;
 
 export default store;

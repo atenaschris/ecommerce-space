@@ -10,23 +10,23 @@ const useInput = (validateInput) => {
   };
 
   const inputReducer = (state, action) => {
-    if (action.type === "SET_INPUT") {
-      return {
-        value: action.val,
-        isTouched: true,
-        isValid: validateInput(action.val),
-      };
+    const { type, val } = action;
+    switch (type) {
+      case "SET_INPUT":
+        return {
+          value: val,
+          isTouched: true,
+          isValid: validateInput(val),
+        };
+      case "BLUR_INPUT":
+        return {
+          value: action.val,
+          isTouched: true,
+          isValid: state.isValid,
+        };
+      default:
+        return state;
     }
-
-    if (action.type === "BLUR_INPUT") {
-      return {
-        value: action.val,
-        isTouched: true,
-        isValid: state.isValid,
-      };
-    }
-
-    return state;
   };
 
   const [inputState, dispatchInputState] = useReducer(
@@ -64,7 +64,7 @@ const useInput = (validateInput) => {
     error,
     setInputHandler,
     blurInputHandler,
-    resetInput
+    resetInput,
   };
 };
 

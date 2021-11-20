@@ -2,12 +2,12 @@ import React from "react";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 
-const Layout = (props) => {
+const Layout = ({children}) => {
   return (
     <div className="App">
       <div className="grid-container">
         <Navbar />
-        <main>{props.children}</main>
+        <main>{children}</main>
         <Footer />
       </div>
     </div>

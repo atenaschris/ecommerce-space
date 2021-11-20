@@ -2,6 +2,7 @@ import {
   SIGN_IN_LOADING,
   SIGN_IN_SUCCESS,
   SIGN_IN_ERROR,
+  SIGN_OUT,
 } from "../constants/authConstants";
 
 export const authReducer = (
@@ -21,7 +22,10 @@ export const authReducer = (
       };
 
     case SIGN_IN_ERROR:
-      return { error: action.payload };
+      return { user: {}, error: action.payload };
+
+    case SIGN_OUT:
+      return { user: {} };
 
     default:
       return state;

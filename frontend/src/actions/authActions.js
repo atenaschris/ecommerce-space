@@ -2,6 +2,8 @@ import {
   SIGN_IN_LOADING,
   SIGN_IN_ERROR,
   SIGN_IN_SUCCESS,
+  SIGN_OUT,
+
 } from "../constants/authConstants";
 import axios from "axios";
 
@@ -23,11 +25,18 @@ export const authenticateUser = (email, password) => async (dispatch) => {
       payload: data,
     });
   } catch (err) {
-      dispatch({
-          type: SIGN_IN_ERROR,
-          payload:err.response && err.response.data.message
+    dispatch({
+      type: SIGN_IN_ERROR,
+      payload:
+        err.response && err.response.data.message
           ? err.response.data.message
           : err.message,
-      })
+    });
   }
+};
+export const logoutUser = () => async (dispatch) => {
+  dispatch({
+    type: SIGN_OUT
+  });
+ 
 };
